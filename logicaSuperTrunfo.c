@@ -95,7 +95,7 @@ int main(){
         }
     break;
     case 2:
-        if(populacao1 == populacao2)
+        if(area1 == area2)
             printf("Empate!");
         else{
             if(area1 > area2){
@@ -106,7 +106,7 @@ int main(){
         }
     break;
     case 3:
-        if(populacao1 == populacao2)
+        if(pib1 == pib2)
             printf("Empate!");
         else{
             if(pib1 > pib2){
@@ -117,7 +117,7 @@ int main(){
         }
     break;
     case 4:
-        if(populacao1 == populacao2)
+        if(pontoTur1 == pontoTur2)
             printf("Empate!");
         else{
             if(pontoTur1 > pontoTur2){
@@ -128,7 +128,7 @@ int main(){
         }
     break;
     case 5:
-        if(populacao1 == populacao2)
+        if(densidade1 == densidade2)
             printf("Empate!");
         else{
             if(densidade1 < densidade2){
