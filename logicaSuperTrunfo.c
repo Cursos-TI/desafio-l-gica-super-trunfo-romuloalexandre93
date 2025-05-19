@@ -2,11 +2,11 @@
 
 int main(){
     char pais1[20], pais2[20];
-    int pontoTur1, pontoTur2, populacao1, populacao2, atributo;
+    int pontoTur1, pontoTur2, populacao1, populacao2, atributo1, atributo2;
     float area1, area2;
     double pib1, pib2;
     unsigned long int densidade1, densidade2;
-    float resultado, resultado2, carta1, carta2;
+    int resultado1, resultado2;
 
     /*Carta 1:
     País: BRA ou Brasil
@@ -78,68 +78,78 @@ int main(){
 
     printf("\n");
     printf("Atributos para comparacao:\n");
-    printf("1. Populacao - 2. Area - 3. PIB - 4. Pontos Turisticos - 5. Densidade demografica.\n");
-    printf("Escolha o atributo: ");
-    scanf("%d", &atributo);
+    printf("1. Populacao | 2. Area | 3. PIB | 4. Pontos Turisticos | 5. Densidade demografica.\n");
+    printf("Escolha o primeiro atributo [de 1 a 5]: ");
+    scanf("%d", &atributo1);
 
-    switch(atributo){
-    case 1:
-        if(populacao1 == populacao2)
-            printf("Empate!");
-        else{
-            if(populacao1 > populacao2){
-                printf("A carta 1 (%s) venceu!\n", pais1);
-            } else {
-                printf("A carta 2 (%s) venceu!\n", pais2);
-            }
+    switch(atributo1){
+        case 1:
+            printf("Sua escolha foi Populacao.\n");
+            resultado1 = populacao1 > populacao2 ? 1 : 0;
+        break;
+        case 2:
+            printf("Sua escolha foi Area.\n");
+            resultado1 = area1 > area2 ? 1 : 0;
+        break;
+        case 3:
+            printf("Sua escolha foi PIB.\n");
+            resultado1 = pib1 > pib2 ? 1 : 0;
+        break;
+        case 4:
+            printf("Sua escolha foi Pontos Turisticos.\n");
+            resultado1 = pontoTur1 > pontoTur2 ? 1 : 0;
+        break;
+        case 5:
+            printf("Sua escolha foi Densidade demográfica.\n");
+            resultado1 = densidade1 < densidade2 ? 1 : 0;
+        break;
+        default:
+            printf("Opcao invalida. Faca novamente.\n");
+    }
+
+    printf("\n");
+    printf("1. Populacao | 2. Area | 3. PIB | 4. Pontos Turisticos | 5. Densidade demografica.\n");
+    printf("Escolha o segundo atributo, diferente do primeiro [de 1 a 5]: ");
+    scanf("%d", &atributo2);
+
+    if(atributo1 == atributo2){
+            printf("\nNão pode atributos iguais! Reinicie o jogo.\n");
+    } else{
+        switch(atributo2){
+            case 1:
+                printf("Sua escolha foi Populacao.\n");
+                resultado2 = populacao1 > populacao2 ? 1 : 0;
+            break;
+            case 2:
+                printf("Sua escolha foi Area.\n");
+                resultado2 = area1 > area2 ? 1 : 0;
+            break;
+            case 3:
+                printf("Sua escolha foi PIB.\n");
+                resultado2 = pib1 > pib2 ? 1 : 0;
+            break;
+            case 4:
+                printf("Sua escolha foi Pontos Turisticos.\n");
+                resultado2 = pontoTur1 > pontoTur2 ? 1 : 0;
+            break;
+            case 5:
+                printf("Sua escolha foi Densidade demográfica.\n");
+                resultado2 = densidade1 < densidade2 ? 1 : 0;
+            break;
+            default:
+                printf("Opcao invalida. Faca novamente.\n");
+            break;
         }
-    break;
-    case 2:
-        if(area1 == area2)
-            printf("Empate!");
-        else{
-            if(area1 > area2){
-                printf("A carta 1 (%s) venceu!\n", pais1);
-            } else {
-                printf("A carta 2 (%s) venceu!\n", pais2);
-            }
+
+        printf("\n");
+        if(resultado1 && resultado2)
+            printf("A carta 1 (%s) venceu!\n", pais1);
+        else {
+            if (resultado1 != resultado2)
+               printf("A carta 1 (%s) empatou com a carta 2 (%s)\n", pais1, pais2);
+            else
+               printf("A carta 2 (%s) venceu!\n", pais2);
         }
-    break;
-    case 3:
-        if(pib1 == pib2)
-            printf("Empate!");
-        else{
-            if(pib1 > pib2){
-                printf("A carta 1 (%s) venceu!\n", pais1);
-            } else {
-                printf("A carta 2 (%s) venceu!\n", pais2);
-            }
-        }
-    break;
-    case 4:
-        if(pontoTur1 == pontoTur2)
-            printf("Empate!");
-        else{
-            if(pontoTur1 > pontoTur2){
-                printf("A carta 1 (%s) venceu!\n", pais1);
-            } else {
-                printf("A carta 2 (%s) venceu!\n", pais2);
-            }
-        }
-    break;
-    case 5:
-        if(densidade1 == densidade2)
-            printf("Empate!");
-        else{
-            if(densidade1 < densidade2){
-                printf("A carta 1 (%s) venceu!\n", pais1);
-            } else {
-                printf("A carta 2 (%s) venceu!\n", pais2);
-            }
-        }
-    break;
-    default:
-        printf("Opcao invalida. Faca novamente.\n");
     }
 
     return 0;
